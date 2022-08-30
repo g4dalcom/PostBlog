@@ -1,4 +1,4 @@
-package com.example.intermediate.controller.response;
+package com.example.intermediate.controller;
 
 import com.example.intermediate.controller.request.SubcommentRequestDto;
 import com.example.intermediate.controller.response.ResponseDto;
