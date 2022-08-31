@@ -61,6 +61,8 @@ public class MemberService {
   public ResponseDto<?> login(LoginRequestDto requestDto, HttpServletResponse response) {
     Member member = isPresentMember(requestDto.getNickname());
     if (null == member) {
+
+      System.out.println("1");
       return ResponseDto.fail("MEMBER_NOT_FOUND",
           "member not found");
     }
@@ -96,7 +98,7 @@ public class MemberService {
     Authentication authentication = tokenProvider.getAuthentication(request.getHeader("Access-Token"));
     RefreshToken refreshToken = tokenProvider.isPresentRefreshToken(member);
 
-    if (!refreshToken.getValue().equals(request.getHeader("Refresh-Token"))) {
+    if (!refreshToken.getTokenValue().equals(request.getHeader("Refresh-Token"))) {
       return ResponseDto.fail("INVALID_TOKEN", "refresh token is invalid");
     }
 
